@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+@theme {
+  --font-allura: "Allura", cursive;
+}
+
+body {
+  @apply bg-gray-900 font-allura;
+}
+
+.fade-up {
+  opacity: 0;
+  animation: fade-up 1.2s ease-out 3.4s forwards;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+    filter: blur(4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
