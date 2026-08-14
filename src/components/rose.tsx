@@ -1,4 +1,4 @@
-import "../App.css";
+import "./rose.css";
 
 type RoseProps = {
   size?: number;

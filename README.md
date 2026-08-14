@@ -1,77 +1,89 @@
-# React + TypeScript + Vite
+![Banner do projeto](./src/assets/images/github-banner.png)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# 🌹 Bom Dia, Be
 
-Currently, two official plugins are available:
+Uma aplicação web interativa e romântica que combina uma rosa animada com uma mensagem especial para cada dia do ano.
+Um pequeno projeto feito para transformar um simples “bom dia” em algo especial.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+🔗 Acesse o projeto online:
+👉 https://bom-dia-be.vercel.app
 
-## React Compiler
+<br />
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+## ✨ Funcionalidades
 
-Note: This will impact Vite dev & build performances.
+- 💌 Exibição de rosa animada e de mensagem romântica (diferente para cada dia do ano).
 
-## Expanding the ESLint configuration
+<br />
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🛠️ Tecnologias Utilizadas
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- ⚛️ React
+- 🟦 TypeScript
+- 🎨 Tailwind CSS
+- ⚡ Vite
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+<br />
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 💻 Como Rodar o Projeto Localmente
 
+Siga os passos abaixo para executar o projeto em sua máquina:
+
+```bash
+# Clone o repositório
+git clone https://github.com/diegonatalo/rose.git
+
+# Acesse a pasta do projeto
+cd rose
+
+# Instale as dependências
+pnpm install
+
+# Inicie o servidor de desenvolvimento
+pnpm dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+📍 O projeto estará disponível em: http://localhost:5173
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+<br />
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 🛣️ Melhorias Futuras
 
-```
+- 💝 Criar mensagens especiais para datas comemorativas
+- 🎂 Adicionar mensagens personalizadas para aniversários
+- 💑 Criar uma área para datas importantes do casal
+- 🌙 Alterar a mensagem de acordo com o período do dia
+- 🌧️ Criar diferentes animações para diferentes momentos
+- 🌸 Adicionar diferentes tipos de flores
+- 🎨 Criar temas visuais alternativos
+- 📱 Aprimorar a experiência em dispositivos móveis
+- 🔊 Adicionar efeitos sonoros opcionais
+- 💌 Permitir mensagens personalizadas
+- 📆 Permitir visualizar mensagens de outros dias
+- ✨ Criar efeitos especiais para datas importantes
+
+<br />
+
+## 🤝 Contribuição
+
+Contribuições são sempre bem-vindas!
+
+Para contribuir:
+
+1. Faça um fork do projeto
+2. Crie uma branch para sua feature (`git checkout -b feature/minha-feature`)
+3. Commit suas alterações (`git commit -m 'feat: minha nova feature'`)
+4. Faça push para a branch (`git push origin feature/minha-feature`)
+5. Abra um Pull Request
+
+<br />
+
+## 📄 Licença
+
+Este projeto está sob a licença MIT.
+Sinta-se livre para usar, modificar e distribuir.
+
+<br />
+<p align="center">
+  Desenvolvido com ❤️ por <a href="https://linkedin.com/in/diego-natalo"><b>Diego Natalo</b></a>
+</p>
