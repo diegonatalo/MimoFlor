@@ -47,17 +47,19 @@ export function Rose({
               PETAL GRADIENTS
           ===================================================== */}
 
-          <radialGradient id="rosePetal" cx="40%" cy="25%" r="80%">
-            <stop offset="0%" stopColor="#fb7185" />
-            <stop offset="30%" stopColor="#f43f5e" />
-            <stop offset="70%" stopColor="#e11d48" />
+          <radialGradient id="rosePetal" cx="38%" cy="22%" r="85%">
+            <stop offset="0%" stopColor="#ffe4e6" />
+            <stop offset="16%" stopColor="#fb7185" />
+            <stop offset="48%" stopColor="#f43f5e" />
+            <stop offset="76%" stopColor="#e11d48" />
             <stop offset="100%" stopColor="#881337" />
           </radialGradient>
 
-          <radialGradient id="rosePetalLight" cx="35%" cy="20%" r="85%">
-            <stop offset="0%" stopColor="#fda4af" />
-            <stop offset="35%" stopColor="#fb7185" />
-            <stop offset="70%" stopColor="#e11d48" />
+          <radialGradient id="rosePetalLight" cx="34%" cy="18%" r="90%">
+            <stop offset="0%" stopColor="#fff1f2" />
+            <stop offset="24%" stopColor="#fda4af" />
+            <stop offset="54%" stopColor="#fb7185" />
+            <stop offset="80%" stopColor="#e11d48" />
             <stop offset="100%" stopColor="#9f1239" />
           </radialGradient>
 
@@ -68,8 +70,9 @@ export function Rose({
             x2="100%"
             y2="100%"
           >
-            <stop offset="0%" stopColor="#f43f5e" />
-            <stop offset="45%" stopColor="#be123c" />
+            <stop offset="0%" stopColor="#fb7185" />
+            <stop offset="40%" stopColor="#be123c" />
+            <stop offset="74%" stopColor="#9f1239" />
             <stop offset="100%" stopColor="#4c0519" />
           </linearGradient>
 
@@ -80,7 +83,8 @@ export function Rose({
             x2="100%"
             y2="100%"
           >
-            <stop offset="0%" stopColor="#fb7185" />
+            <stop offset="0%" stopColor="#fecdd3" />
+            <stop offset="45%" stopColor="#fb7185" />
             <stop offset="100%" stopColor="#9f1239" />
           </linearGradient>
 
@@ -100,8 +104,9 @@ export function Rose({
           ===================================================== */}
 
           <linearGradient id="roseLeaf" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#4ade80" />
-            <stop offset="45%" stopColor="#16a34a" />
+            <stop offset="0%" stopColor="#86efac" />
+            <stop offset="40%" stopColor="#22c55e" />
+            <stop offset="72%" stopColor="#16a34a" />
             <stop offset="100%" stopColor="#14532d" />
           </linearGradient>
 
@@ -149,6 +154,26 @@ export function Rose({
             <stop offset="0%" stopColor="#14532d" stopOpacity="0.35" />
 
             <stop offset="100%" stopColor="#14532d" stopOpacity="0" />
+          </radialGradient>
+
+          {/* =====================================================
+              FLOWER HALO
+          ===================================================== */}
+
+          <radialGradient id="roseHalo">
+            <stop offset="0%" stopColor="#fda4af" stopOpacity="0.55" />
+            <stop offset="45%" stopColor="#f43f5e" stopOpacity="0.22" />
+            <stop offset="100%" stopColor="#f43f5e" stopOpacity="0" />
+          </radialGradient>
+
+          {/* =====================================================
+              DEWDROP
+          ===================================================== */}
+
+          <radialGradient id="roseDew" cx="38%" cy="30%" r="75%">
+            <stop offset="0%" stopColor="#ffffff" stopOpacity="0.95" />
+            <stop offset="55%" stopColor="#ffe4ec" stopOpacity="0.35" />
+            <stop offset="100%" stopColor="#ffffff" stopOpacity="0" />
           </radialGradient>
         </defs>
 
@@ -365,6 +390,16 @@ export function Rose({
               FLOWER
           =================================================== */}
 
+          {/* Halo luminoso atrás da flor */}
+          <ellipse
+            className="rose-halo"
+            cx="160"
+            cy="118"
+            rx="96"
+            ry="96"
+            fill="url(#roseHalo)"
+          />
+
           <g className="rose-flower" filter="url(#roseShadowFilter)">
             {/* Pétala externa esquerda */}
             <g className="petal-group petal-outer-left">
@@ -551,6 +586,11 @@ export function Rose({
               transform="rotate(30 188 78)"
               opacity="0.3"
             />
+
+            {/* Gotas de orvalho */}
+            <circle className="dewdrop dewdrop-one" cx="120" cy="112" r="6" fill="url(#roseDew)" />
+
+            <circle className="dewdrop dewdrop-two" cx="196" cy="100" r="4.5" fill="url(#roseDew)" />
           </g>
 
           {/* ===================================================

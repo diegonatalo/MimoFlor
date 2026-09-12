@@ -10,13 +10,173 @@ body {
   height: 100%;
 }
 
-body {
-  @apply bg-gray-900;
+html {
+  background-color: #14040f;
 }
+
+body {
+  background:
+    radial-gradient(
+      1200px 900px at 50% 32%,
+      #4a1024 0%,
+      #2c0a1a 45%,
+      #14040f 100%
+    );
+  color: #ffe4ec;
+}
+
+/* =========================================================
+   AMBIENT GLOW BEHIND THE ROSE
+   ========================================================= */
+
+.ambient-glow {
+  position: absolute;
+  left: 50%;
+  top: 40%;
+
+  width: min(80vw, 720px);
+  height: min(80vw, 720px);
+
+  transform: translate(-50%, -50%);
+
+  background: radial-gradient(
+    circle,
+    rgba(244, 63, 94, 0.3) 0%,
+    rgba(190, 18, 60, 0.14) 42%,
+    transparent 70%
+  );
+
+  filter: blur(24px);
+  pointer-events: none;
+
+  z-index: 0;
+
+  animation: glow-pulse 7s ease-in-out infinite alternate;
+}
+
+@keyframes glow-pulse {
+  from {
+    opacity: 0.7;
+    transform: translate(-50%, -50%) scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.08);
+  }
+}
+
+/* =========================================================
+   FLOATING PETALS
+   ========================================================= */
+
+.floating-petals {
+  position: absolute;
+  inset: 0;
+
+  overflow: hidden;
+  pointer-events: none;
+
+  z-index: 1;
+}
+
+.floating-petals .petal {
+  position: absolute;
+  top: -10%;
+
+  border-radius: 100% 0 100% 0;
+
+  background: linear-gradient(135deg, #fda4af, #e11d48);
+
+  opacity: 0;
+
+  animation-name: petal-fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+
+  will-change: transform, opacity;
+}
+
+@keyframes petal-fall {
+  0% {
+    opacity: 0;
+    transform: translateY(-10vh) translateX(0) rotate(0deg);
+  }
+
+  12% {
+    opacity: 0.75;
+  }
+
+  50% {
+    transform: translateY(50vh) translateX(28px) rotate(200deg);
+  }
+
+  88% {
+    opacity: 0.5;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(112vh) translateX(-20px) rotate(420deg);
+  }
+}
+
+/* =========================================================
+   ROMANTIC MESSAGE
+   ========================================================= */
+
+.message-glow {
+  text-shadow:
+    0 0 34px rgba(251, 113, 133, 0.4),
+    0 2px 14px rgba(0, 0, 0, 0.45);
+}
+
+.msg-divider {
+  position: relative;
+
+  display: block;
+
+  width: 140px;
+  height: 1px;
+
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(253, 164, 175, 0.65),
+    transparent
+  );
+}
+
+.msg-divider::after {
+  content: "";
+
+  position: absolute;
+  left: 50%;
+  top: 50%;
+
+  width: 7px;
+  height: 7px;
+
+  transform: translate(-50%, -50%) rotate(45deg);
+
+  background: #fb7185;
+  border-radius: 1px;
+
+  box-shadow: 0 0 10px rgba(251, 113, 133, 0.8);
+}
+
+/* =========================================================
+   ENTRANCE ANIMATIONS
+   ========================================================= */
 
 .fade-up {
   opacity: 0;
   animation: fade-up 1.2s ease-out 3.4s forwards;
+}
+
+.fade-up-late {
+  opacity: 0;
+  animation: fade-up 1.2s ease-out 4.1s forwards;
 }
 
 @keyframes fade-up {
@@ -30,5 +190,18 @@ body {
     opacity: 1;
     transform: translateY(0);
     filter: blur(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ambient-glow,
+  .floating-petals .petal {
+    animation: none !important;
+  }
+
+  .fade-up,
+  .fade-up-late {
+    opacity: 1;
+    animation: none !important;
   }
 }
