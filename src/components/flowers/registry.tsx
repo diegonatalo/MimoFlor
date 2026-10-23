@@ -60,7 +60,7 @@ export const FLOWERS: Record<FlowerType, FlowerConfig> = {
         id: "kind",
         label: "Tipo de rosa",
         choices: [
-          { value: "normal", label: "Normal" },
+          { value: "national", label: "Nacional" },
           { value: "colombian", label: "Colombiana" },
         ],
       },

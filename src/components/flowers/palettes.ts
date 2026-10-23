@@ -14,7 +14,7 @@ type RosePalette = {
   spiral: string;
 };
 
-/** Rosa normal (vista de cima) */
+/** Rosa nacional (vista de cima) */
 export const ROSE_PALETTES: Record<RoseColor, RosePalette> = {
   red: {
     layers: [

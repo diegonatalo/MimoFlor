@@ -18,7 +18,7 @@
 ## ✨ Funcionalidades
 
 - 🌹 **Quatro flores para escolher:** rosa, girassol (amarelo), hortênsia (azul) e lírio (branco).
-- 🎛️ **Rosa personalizável:** ao escolher a rosa, aparecem as opções de **tipo** (normal, vista de cima, ou colombiana, de taça alta e fechada) e de **cor** (vermelha ou azul). As quatro combinações têm tema de cores próprio.
+- 🎛️ **Rosa personalizável:** ao escolher a rosa, aparecem as opções de **tipo** (nacional, vista de cima, ou colombiana, de taça alta e fechada) e de **cor** (vermelha ou azul). As quatro combinações têm tema de cores próprio.
 - 🌱 **Animação de nascimento:** o caule brota da terra, as folhas se desenrolam, um botão surge e as pétalas se abrem uma a uma. Depois, a planta balança suavemente e brilhos piscam ao redor.
 - 🎨 **Tema que acompanha a flor:** o fundo, o brilho e a poeira de luz mudam de cor, com transição suave, conforme a flor escolhida.
 - 💌 **Frase de boas-vindas** com entrada suave depois que a flor desabrocha.
@@ -90,7 +90,7 @@ src/
         ├── registry.tsx     # Flores disponíveis e suas opções
         ├── shared.tsx       # Caule, folhas, chão, brilhos e pétala genérica
         ├── utils.ts         # Aleatório determinístico e helper de variáveis CSS
-        ├── rose.tsx             # Rosa normal (vista de cima)
+        ├── rose.tsx             # Rosa nacional (vista de cima)
         ├── colombian-rose.tsx   # Rosa colombiana (taça alta)
         ├── palettes.ts          # Cores (vermelha e azul) das rosas
         ├── sunflower.tsx
