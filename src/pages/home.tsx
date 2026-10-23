@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Flower } from "../components/flower";
 import { FlowerOptions } from "../components/flower-options";
 import { FlowerPicker } from "../components/flower-picker";
@@ -9,6 +9,7 @@ import {
   type Selection,
 } from "../components/flowers/registry";
 import { Footer } from "../components/footer";
+import { readFlowerUrl, writeFlowerUrl } from "../lib/flower-url";
 import { RomanticMessage } from "../components/message";
 import { Stage } from "../components/stage";
 
@@ -30,28 +31,49 @@ const useFlowerSize = () => {
   return size;
 };
 
-const initialSelections = () =>
-  Object.fromEntries(
+const DEFAULT_FLOWER: FlowerType = "hydrangea";
+
+/** Estado inicial: a flor da URL (se houver) por cima dos padrões. */
+const initialState = () => {
+  const selections = Object.fromEntries(
     (Object.keys(FLOWERS) as FlowerType[]).map((type) => [
       type,
       defaultSelection(type),
     ]),
   ) as Record<FlowerType, Selection>;
 
+  const fromUrl = readFlowerUrl(window.location.search);
+  if (fromUrl) selections[fromUrl.flower] = fromUrl.selection;
+
+  return { flower: fromUrl?.flower ?? DEFAULT_FLOWER, selections };
+};
+
 export default function Home() {
-  const [flower, setFlower] = useState<FlowerType>("hydrangea");
-  const [selections, setSelections] = useState(initialSelections);
+  const [initial] = useState(initialState);
+  const [flower, setFlower] = useState<FlowerType>(initial.flower);
+  const [selections, setSelections] = useState(initial.selections);
+  /* sempre a última escolha, mesmo entre dois toques antes de redesenhar */
+  const latest = useRef(initial.selections);
   const size = useFlowerSize();
 
   const selection = selections[flower];
   const groups = FLOWERS[flower].options;
   const { theme } = FLOWERS[flower].view(selection);
 
-  const changeOption = (groupId: string, value: string) =>
-    setSelections((current) => ({
-      ...current,
-      [flower]: { ...current[flower], [groupId]: value },
-    }));
+  const changeFlower = (type: FlowerType) => {
+    setFlower(type);
+    writeFlowerUrl(type, latest.current[type]);
+  };
+
+  const changeOption = (groupId: string, value: string) => {
+    const next = {
+      ...latest.current,
+      [flower]: { ...latest.current[flower], [groupId]: value },
+    };
+    latest.current = next;
+    setSelections(next);
+    writeFlowerUrl(flower, next[flower]);
+  };
 
   return (
     <Stage theme={theme}>
@@ -63,7 +85,7 @@ export default function Home() {
         size={size}
       />
       <RomanticMessage />
-      <FlowerPicker value={flower} onChange={setFlower} />
+      <FlowerPicker value={flower} onChange={changeFlower} />
 
       {/* espaço reservado, para o layout não pular ao trocar de flor */}
       <div className="options-slot">

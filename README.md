@@ -24,8 +24,9 @@
 - 💌 **Frase de boas-vindas** com entrada suave depois que a flor desabrocha.
 - 📱 **Responsivo:** a flor se ajusta à largura e à altura da tela, para tudo caber sem rolar em celulares comuns.
 - ♿ **Acessível:** o seletor é um grupo de botões de rádio navegável pelo teclado e a animação é encurtada para quem prefere menos movimento.
+- 🔗 **Link com a flor:** a flor escolhida fica no endereço, e quem abre o link já vê a mesma flor (ver abaixo).
 - 🥀 **Página 404** própria: um broto que ainda não floresceu.
-- 🔗 **Open Graph** configurado, com imagem de prévia para compartilhamento.
+- 🔗 **Open Graph** configurado, com imagem de prévia para compartilhamento, e **favicon** próprio.
 
 <br />
 
@@ -113,12 +114,34 @@ O projeto é publicado na [Vercel](https://vercel.com). O arquivo `vercel.json` 
 
 As URLs das meta tags Open Graph, em `index.html`, são absolutas. Se o domínio mudar, atualize-as.
 
+### 🔗 Links com a flor
+
+A escolha fica na URL e se atualiza sozinha enquanto você escolhe, então basta copiar o endereço da barra:
+
+| Parâmetro | Valores |
+| --------- | ------- |
+| `flor`    | `rosa`, `girassol`, `hortensia`, `lirio` |
+| `tipo` (só rosa) | `nacional`, `colombiana` |
+| `cor` (só rosa)  | `vermelha`, `azul` |
+
+Exemplos: `/?flor=girassol` e `/?flor=rosa&tipo=colombiana&cor=azul`. Valores desconhecidos são ignorados, e sem `flor` abre a hortênsia. A lógica fica em `src/lib/flower-url.ts`, e cada flor declara o próprio texto de URL (`slug`) no registro.
+
+### 🖼️ Ícones e imagens de prévia
+
+Tudo fica em `public/`:
+
+- `favicon.svg`, `favicon-32.png` e `apple-touch-icon.png`: o ícone do site (uma flor cor-de-rosa).
+- `og-image.jpg`: a imagem que aparece quando o link é compartilhado (1200×630). Hoje é a da hortênsia, a flor padrão.
+- `og/*.jpg`: uma imagem de prévia pronta para cada flor (`rose`, `rose-blue`, `colombian`, `colombian-blue`, `sunflower`, `hydrangea` e `lily`). As meta tags ficam fixas no `index.html`, então o link compartilhado mostra sempre `og-image.jpg`, mesmo com a flor na URL. Estas ficam prontas para uma prévia diferente por flor, o que exigiria gerar o HTML por flor ou uma função na Vercel.
+
+Elas foram geradas a partir do próprio site, com o navegador sem interface, com as animações levadas ao estado final.
+
 <br />
 
 ## 🛣️ Melhorias Futuras
 
 - 💌 Permitir mensagens personalizadas
-- 🔗 Lembrar da flor escolhida e permitir compartilhar um link já com ela
+- 🔗 Uma imagem de prévia diferente no link, conforme a flor escolhida
 - 🌸 Adicionar mais flores (tulipa, margarida, orquídea...)
 - 🎂 Mensagens especiais para datas comemorativas e aniversários
 - 🌙 Alterar o cenário de acordo com o período do dia

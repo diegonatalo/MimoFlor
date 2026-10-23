@@ -13,6 +13,8 @@ export type Selection = Record<string, string>;
 
 export type OptionChoice = {
   value: string;
+  /** texto usado na URL (ex.: "colombiana") */
+  slug: string;
   label: string;
   /** se houver, a escolha aparece como uma bolinha com este fundo, em vez de texto */
   swatch?: string;
@@ -20,6 +22,8 @@ export type OptionChoice = {
 
 export type OptionGroup = {
   id: string;
+  /** nome do parâmetro na URL (ex.: "tipo") */
+  param: string;
   label: string;
   choices: OptionChoice[];
 };
@@ -40,6 +44,8 @@ export type FlowerView = {
 };
 
 type FlowerConfig = {
+  /** texto usado na URL (ex.: "hortensia") */
+  slug: string;
   /** nome curto, para o seletor */
   name: string;
   /** fundo da bolinha no seletor */
@@ -53,23 +59,26 @@ const SWATCH_BLUE = "radial-gradient(circle at 35% 30%, #bfdbfe, #2457d6 70%)";
 
 export const FLOWERS: Record<FlowerType, FlowerConfig> = {
   rose: {
+    slug: "rosa",
     name: "Rosa",
     dot: SWATCH_RED,
     options: [
       {
         id: "kind",
+        param: "tipo",
         label: "Tipo de rosa",
         choices: [
-          { value: "national", label: "Nacional" },
-          { value: "colombian", label: "Colombiana" },
+          { value: "national", slug: "nacional", label: "Nacional" },
+          { value: "colombian", slug: "colombiana", label: "Colombiana" },
         ],
       },
       {
         id: "color",
+        param: "cor",
         label: "Cor da rosa",
         choices: [
-          { value: "red", label: "Vermelha", swatch: SWATCH_RED },
-          { value: "blue", label: "Azul", swatch: SWATCH_BLUE },
+          { value: "red", slug: "vermelha", label: "Vermelha", swatch: SWATCH_RED },
+          { value: "blue", slug: "azul", label: "Azul", swatch: SWATCH_BLUE },
         ],
       },
     ],
@@ -101,6 +110,7 @@ export const FLOWERS: Record<FlowerType, FlowerConfig> = {
     },
   },
   sunflower: {
+    slug: "girassol",
     name: "Girassol",
     dot: "radial-gradient(circle at 35% 30%, #fde68a, #f59e0b 70%)",
     view: () => ({
@@ -114,6 +124,7 @@ export const FLOWERS: Record<FlowerType, FlowerConfig> = {
     }),
   },
   hydrangea: {
+    slug: "hortensia",
     name: "Hortênsia",
     dot: "radial-gradient(circle at 35% 30%, #bfdbfe, #2563eb 70%)",
     view: () => ({
@@ -127,6 +138,7 @@ export const FLOWERS: Record<FlowerType, FlowerConfig> = {
     }),
   },
   lily: {
+    slug: "lirio",
     name: "Lírio",
     dot: "radial-gradient(circle at 35% 30%, #ffffff, #cbd5e1 75%)",
     view: () => ({
