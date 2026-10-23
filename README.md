@@ -25,7 +25,7 @@
 - 📱 **Responsivo:** a flor se ajusta à largura e à altura da tela, para tudo caber sem rolar em celulares comuns.
 - ♿ **Acessível:** o seletor é um grupo de botões de rádio navegável pelo teclado e a animação é encurtada para quem prefere menos movimento.
 - 🔗 **Link com a flor:** a flor escolhida fica no endereço, e quem abre o link já vê a mesma flor (ver abaixo).
-- 🥀 **Página 404** própria: um broto que ainda não floresceu.
+- 🥀 **Página 404** própria: um broto que ainda não floresceu. Aparece para endereços e flores que não existem.
 - 🔗 **Open Graph** configurado, com imagem de prévia para compartilhamento, e **favicon** próprio.
 
 <br />
@@ -124,7 +124,7 @@ A escolha fica na URL e se atualiza sozinha enquanto você escolhe, então basta
 | `tipo` (só rosa) | `nacional`, `colombiana` |
 | `cor` (só rosa)  | `vermelha`, `azul` |
 
-Exemplos: `/?flor=girassol` e `/?flor=rosa&tipo=colombiana&cor=azul`. Valores desconhecidos são ignorados, e sem `flor` abre a hortênsia. A lógica fica em `src/lib/flower-url.ts`, e cada flor declara o próprio texto de URL (`slug`) no registro.
+Exemplos: `/?flor=girassol` e `/?flor=rosa&tipo=colombiana&cor=azul`. Sem `flor`, abre a hortênsia. Um valor que não existe em `flor`, `tipo` ou `cor` (por exemplo `?flor=rosa&cor=azullaaaaa`) leva à página 404. Parâmetros que não são do site, como `utm_source` e `fbclid`, são ignorados, e `tipo` ou `cor` numa flor que não os tem também. A lógica fica em `src/lib/flower-url.ts`, e cada flor declara o próprio texto de URL (`slug`) no registro.
 
 ### 🖼️ Ícones e imagens de prévia
 

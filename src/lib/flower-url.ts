@@ -9,24 +9,35 @@ const FLOWER_PARAM = "flor";
 
 const types = Object.keys(FLOWERS) as FlowerType[];
 
-type FlowerChoice = { flower: FlowerType; selection: Selection };
+export type FlowerUrl =
+  /** sem `flor` na URL: abre a flor padrão */
+  | { status: "default" }
+  /** `flor`, `tipo` ou `cor` com um valor que não existe */
+  | { status: "invalid" }
+  | { status: "flower"; flower: FlowerType; selection: Selection };
 
 /** Lê a flor e as opções da URL (ex.: `?flor=rosa&tipo=colombiana&cor=azul`).
-    Valores desconhecidos são ignorados; sem `flor` válida, devolve `null`. */
-export const readFlowerUrl = (search: string): FlowerChoice | null => {
+    Só os parâmetros do site são validados: os demais (como `utm_source` ou
+    `fbclid`, que as redes sociais acrescentam) são ignorados. */
+export const readFlowerUrl = (search: string): FlowerUrl => {
   const params = new URLSearchParams(search);
+  if (!params.has(FLOWER_PARAM)) return { status: "default" };
+
   const slug = params.get(FLOWER_PARAM)?.toLowerCase();
   const flower = types.find((type) => FLOWERS[type].slug === slug);
-  if (!flower) return null;
+  if (!flower) return { status: "invalid" };
 
   const selection = defaultSelection(flower);
   for (const group of FLOWERS[flower].options ?? []) {
+    if (!params.has(group.param)) continue;
+
     const wanted = params.get(group.param)?.toLowerCase();
     const choice = group.choices.find((c) => c.slug === wanted);
-    if (choice) selection[group.id] = choice.value;
+    if (!choice) return { status: "invalid" };
+    selection[group.id] = choice.value;
   }
 
-  return { flower, selection };
+  return { status: "flower", flower, selection };
 };
 
 /** Escreve a flor e as opções escolhidas na URL, sem criar entrada no histórico. */

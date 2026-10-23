@@ -43,9 +43,10 @@ const initialState = () => {
   ) as Record<FlowerType, Selection>;
 
   const fromUrl = readFlowerUrl(window.location.search);
-  if (fromUrl) selections[fromUrl.flower] = fromUrl.selection;
+  if (fromUrl.status !== "flower") return { flower: DEFAULT_FLOWER, selections };
 
-  return { flower: fromUrl?.flower ?? DEFAULT_FLOWER, selections };
+  selections[fromUrl.flower] = fromUrl.selection;
+  return { flower: fromUrl.flower, selections };
 };
 
 export default function Home() {
