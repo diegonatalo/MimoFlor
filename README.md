@@ -17,7 +17,8 @@
 
 ## ✨ Funcionalidades
 
-- 🌹 **Quatro flores para escolher:** rosa (vermelha), girassol (amarelo), hortênsia (azul) e lírio (branco).
+- 🌹 **Quatro flores para escolher:** rosa, girassol (amarelo), hortênsia (azul) e lírio (branco).
+- 🎛️ **Rosa personalizável:** ao escolher a rosa, aparecem as opções de **tipo** (normal, vista de cima, ou colombiana, de taça alta e fechada) e de **cor** (vermelha ou azul). As quatro combinações têm tema de cores próprio.
 - 🌱 **Animação de nascimento:** o caule brota da terra, as folhas se desenrolam, um botão surge e as pétalas se abrem uma a uma. Depois, a planta balança suavemente e brilhos piscam ao redor.
 - 🎨 **Tema que acompanha a flor:** o fundo, o brilho e a poeira de luz mudam de cor, com transição suave, conforme a flor escolhida.
 - 💌 **Frase de boas-vindas** com entrada suave depois que a flor desabrocha.
@@ -82,13 +83,16 @@ src/
     ├── flower.tsx           # Monta o SVG da flor escolhida
     ├── flower.css           # Linha do tempo e keyframes da animação
     ├── flower-picker.tsx    # Seletor de flores
+    ├── flower-options.tsx   # Opções da flor escolhida (tipo, cor...)
     ├── message.tsx           # Frase exibida abaixo da flor
     ├── stage.tsx            # Fundo atmosférico (halo e poeira de luz)
     └── flowers/
-        ├── registry.tsx     # Lista de flores disponíveis
+        ├── registry.tsx     # Flores disponíveis e suas opções
         ├── shared.tsx       # Caule, folhas, chão, brilhos e pétala genérica
         ├── utils.ts         # Aleatório determinístico e helper de variáveis CSS
-        ├── rose.tsx
+        ├── rose.tsx             # Rosa normal (vista de cima)
+        ├── colombian-rose.tsx   # Rosa colombiana (taça alta)
+        ├── palettes.ts          # Cores (vermelha e azul) das rosas
         ├── sunflower.tsx
         ├── hydrangea.tsx
         └── lily.tsx
@@ -97,9 +101,9 @@ src/
 ### 🌷 Como adicionar uma nova flor
 
 1. Crie `src/components/flowers/minha-flor.tsx` exportando um componente de gradientes (`MinhaFlorDefs`) e um da planta (`MinhaFlorPlant`). Use `Stem`, `Leaf` e `Petal` de `shared.tsx`.
-2. Registre a flor em `flowers/registry.tsx`, com nome, cor dos brilhos, posição da cabeça e o segundo em que ela começa a abrir.
-3. Adicione o nome e a cor do botão em `flower-picker.tsx`.
-4. Crie o tema de cores em `index.css`, no bloco `.stage[data-flower="..."]`.
+2. Registre a flor em `flowers/registry.tsx`: nome, cor da bolinha no seletor e uma função `view` que devolve o desenho, o tema, a cor dos brilhos, a posição da cabeça e o segundo em que ela começa a abrir.
+3. Crie o tema de cores em `index.css`, no bloco `.stage[data-flower="..."]`.
+4. Para dar variações à flor (como tipo e cor da rosa), declare `options` no registro. O seletor desenha a fileira de opções sozinho, e `view` recebe a escolha feita.
 
 <br />
 

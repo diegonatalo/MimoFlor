@@ -1,3 +1,4 @@
+import { ROSE_PALETTES, type RoseColor } from "./palettes";
 import { Leaf, Petal, Stem } from "./shared";
 import { rnd, vars } from "./utils";
 
@@ -30,18 +31,10 @@ const RINGS: RingSpec[] = [
   { count: 3, start: 40, offset: 2, w: 24, h: 19, fill: "roseP5", delay: 0 },
 ];
 
-export const RoseDefs = () => (
+export const RoseDefs = ({ color }: { color: RoseColor }) => (
   <>
-    {(
-      [
-        ["roseP1", "#5a0820", "#be123c", "#ff8fa3"],
-        ["roseP2", "#4c0519", "#b0113a", "#fb6f8a"],
-        ["roseP3", "#450a1a", "#9f1239", "#f0516f"],
-        ["roseP4", "#3b0614", "#8a0f33", "#d93a5c"],
-        ["roseP5", "#2d040f", "#6f0f2e", "#b12449"],
-      ] as const
-    ).map(([id, a, b, c]) => (
-      <linearGradient key={id} id={id} x1="0" y1="1" x2="0" y2="0">
+    {ROSE_PALETTES[color].layers.map(([a, b, c], i) => (
+      <linearGradient key={i} id={`roseP${i + 1}`} x1="0" y1="1" x2="0" y2="0">
         <stop offset="0" stopColor={a} />
         <stop offset="0.55" stopColor={b} />
         <stop offset="1" stopColor={c} />
@@ -56,7 +49,9 @@ export const RoseDefs = () => (
 
 const SEPALS = [128, 152, 180, 208, 232];
 
-export const RosePlant = () => (
+export const RosePlant = ({ color }: { color: RoseColor }) => {
+  const palette = ROSE_PALETTES[color];
+  return (
   <>
     <Stem d="M158 358 C150 310 172 250 160 168" width={9} />
 
@@ -108,14 +103,14 @@ export const RosePlant = () => (
                 <path
                   d={cup(ring.w * k, ring.h * k)}
                   fill={`url(#${ring.fill})`}
-                  stroke="#2d040f"
+                  stroke={palette.outline}
                   strokeOpacity={0.45}
                   strokeWidth={1.1}
                 />
                 <path
                   d={rim(ring.w * k, ring.h * k)}
                   fill="none"
-                  stroke="#ffe4e6"
+                  stroke={palette.rim}
                   strokeOpacity={0.6}
                   strokeWidth={1.8}
                   strokeLinecap="round"
@@ -130,7 +125,7 @@ export const RosePlant = () => (
           <path
             d="M-2 -3 C5 -9 11 -3 7 3 C3 8 -6 5 -6 -2 C-6 -9 2 -14 10 -12"
             fill="none"
-            stroke="#1f0309"
+            stroke={palette.spiral}
             strokeOpacity={0.6}
             strokeWidth={1.6}
             strokeLinecap="round"
@@ -139,4 +134,5 @@ export const RosePlant = () => (
       </g>
     </g>
   </>
-);
+  );
+};

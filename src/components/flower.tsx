@@ -1,17 +1,19 @@
-import { FLOWERS, type FlowerType } from "./flowers/registry";
+import { FLOWERS, type FlowerType, type Selection } from "./flowers/registry";
 import { CommonDefs, Ground, Sparkles } from "./flowers/shared";
 import { vars } from "./flowers/utils";
 import "./flower.css";
 
 type FlowerProps = {
   type?: FlowerType;
+  /** opções escolhidas para a flor (tipo, cor...) */
+  selection?: Selection;
   size?: number;
 };
 
 const VIEW_BOX = "0 0 320 380";
 
-export function Flower({ type = "rose", size = 380 }: FlowerProps) {
-  const flower = FLOWERS[type];
+export function Flower({ type = "rose", selection = {}, size = 380 }: FlowerProps) {
+  const flower = FLOWERS[type].view(selection);
   const height = (size * 380) / 320;
 
   return (
