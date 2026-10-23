@@ -1,13 +1,14 @@
-import { messages } from "../consts/message";
-import { getDayOfYear } from "../functions/getDayOfYear";
+export const DEFAULT_MESSAGE = "Uma flor para alegrar o seu dia";
 
 export const RomanticMessage = () => {
-  const day = getDayOfYear();
-  const message = messages[day - 1];
-
   return (
-    <h1 className="fade-up font-allura text-5xl text-rose-200">
-      {message || "Bom dia be"}
-    </h1>
+    <div className="flex flex-col items-center gap-3">
+      <h1 className="fade-up message font-allura text-4xl sm:text-7xl leading-tight px-2 pb-2">
+        {DEFAULT_MESSAGE}
+      </h1>
+      <div className="fade-in ornament" aria-hidden="true">
+        ✦
+      </div>
+    </div>
   );
 };

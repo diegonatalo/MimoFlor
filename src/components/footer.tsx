@@ -1,7 +1,7 @@
 export const Footer = () => {
   return (
-    <footer className="text-sm text-center text-gray-500 font-sans mt-auto">
-      Feito com ❤️ para alguém especial
+    <footer className="fade-in mt-auto pt-2 text-base italic tracking-wide text-white/40">
+      feito com carinho para alguém especial
     </footer>
   );
 };

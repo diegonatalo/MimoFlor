@@ -1,33 +1,46 @@
-![Banner do projeto](./src/assets/images/github-banner.png)
+<p align="center">
+  <img src="./public/og-image.jpg" alt="Uma hortênsia azul desabrochando sobre a frase “Uma flor para alegrar o seu dia”" />
+</p>
 
-# 🌹 Bom Dia, Be
+<h1 align="center">🌸 Mimoflor</h1>
 
-Uma aplicação web interativa e romântica que combina uma rosa animada com uma mensagem especial para cada dia do ano.
-Um pequeno projeto feito para transformar um simples “bom dia” em algo especial.
+<p align="center">
+  <b>Uma flor para você.</b> Escolha uma flor e veja ela nascer.<br />
+  Um pequeno presente digital: uma animação, uma frase e um jardim para alegrar o dia de alguém.
+</p>
 
-🔗 Acesse o projeto online:
-👉 https://bom-dia-be.vercel.app
+<p align="center">
+  🔗 <a href="https://mimoflor.vercel.app"><b>Acesse o projeto online</b></a>
+</p>
 
 <br />
 
 ## ✨ Funcionalidades
 
-- 💌 Exibição de rosa animada e de mensagem romântica (diferente para cada dia do ano).
+- 🌹 **Quatro flores para escolher:** rosa (vermelha), girassol (amarelo), hortênsia (azul) e lírio (branco).
+- 🌱 **Animação de nascimento:** o caule brota da terra, as folhas se desenrolam, um botão surge e as pétalas se abrem uma a uma. Depois, a planta balança suavemente e brilhos piscam ao redor.
+- 🎨 **Tema que acompanha a flor:** o fundo, o brilho e a poeira de luz mudam de cor, com transição suave, conforme a flor escolhida.
+- 💌 **Frase de boas-vindas** com entrada suave depois que a flor desabrocha.
+- 📱 **Responsivo:** a flor se ajusta à largura e à altura da tela, para tudo caber sem rolar em celulares comuns.
+- ♿ **Acessível:** o seletor é um grupo de botões de rádio navegável pelo teclado e a animação é encurtada para quem prefere menos movimento.
+- 🥀 **Página 404** própria: um broto que ainda não floresceu.
+- 🔗 **Open Graph** configurado, com imagem de prévia para compartilhamento.
 
 <br />
 
 ## 🛠️ Tecnologias Utilizadas
 
-- ⚛️ React
-- 🟦 TypeScript
-- 🎨 Tailwind CSS
-- ⚡ Vite
+- ⚛️ [React 19](https://react.dev)
+- 🟦 [TypeScript](https://www.typescriptlang.org)
+- 🎨 [Tailwind CSS 4](https://tailwindcss.com)
+- ⚡ [Vite](https://vite.dev)
+- 🖼️ SVG desenhado em código, animado só com CSS (sem bibliotecas de animação)
 
 <br />
 
 ## 💻 Como Rodar o Projeto Localmente
 
-Siga os passos abaixo para executar o projeto em sua máquina:
+Você vai precisar do [Node.js](https://nodejs.org) e do [pnpm](https://pnpm.io).
 
 ```bash
 # Clone o repositório
@@ -45,30 +58,73 @@ pnpm dev
 
 📍 O projeto estará disponível em: http://localhost:5173
 
+### Scripts
+
+| Comando        | O que faz                                   |
+| -------------- | ------------------------------------------- |
+| `pnpm dev`     | Inicia o servidor de desenvolvimento        |
+| `pnpm build`   | Verifica os tipos e gera a versão de produção |
+| `pnpm preview` | Serve localmente a versão de produção       |
+| `pnpm lint`    | Roda o ESLint                               |
+
+<br />
+
+## 🗂️ Estrutura do Projeto
+
+```text
+src/
+├── App.tsx                  # Escolhe a página: "/" é a home, o resto é a 404
+├── index.css                # Temas por flor, fundo, tipografia e seletor
+├── pages/
+│   ├── home.tsx             # Flor, frase e seletor
+│   └── not-found.tsx        # Página 404
+└── components/
+    ├── flower.tsx           # Monta o SVG da flor escolhida
+    ├── flower.css           # Linha do tempo e keyframes da animação
+    ├── flower-picker.tsx    # Seletor de flores
+    ├── message.tsx           # Frase exibida abaixo da flor
+    ├── stage.tsx            # Fundo atmosférico (halo e poeira de luz)
+    └── flowers/
+        ├── registry.tsx     # Lista de flores disponíveis
+        ├── shared.tsx       # Caule, folhas, chão, brilhos e pétala genérica
+        ├── utils.ts         # Aleatório determinístico e helper de variáveis CSS
+        ├── rose.tsx
+        ├── sunflower.tsx
+        ├── hydrangea.tsx
+        └── lily.tsx
+```
+
+### 🌷 Como adicionar uma nova flor
+
+1. Crie `src/components/flowers/minha-flor.tsx` exportando um componente de gradientes (`MinhaFlorDefs`) e um da planta (`MinhaFlorPlant`). Use `Stem`, `Leaf` e `Petal` de `shared.tsx`.
+2. Registre a flor em `flowers/registry.tsx`, com nome, cor dos brilhos, posição da cabeça e o segundo em que ela começa a abrir.
+3. Adicione o nome e a cor do botão em `flower-picker.tsx`.
+4. Crie o tema de cores em `index.css`, no bloco `.stage[data-flower="..."]`.
+
+<br />
+
+## 🚀 Deploy
+
+O projeto é publicado na [Vercel](https://vercel.com). O arquivo `vercel.json` redireciona todos os endereços para o `index.html`, assim a página 404 própria do site aparece no lugar da padrão da Vercel.
+
+As URLs das meta tags Open Graph, em `index.html`, são absolutas. Se o domínio mudar, atualize-as.
+
 <br />
 
 ## 🛣️ Melhorias Futuras
 
-- 💝 Criar mensagens especiais para datas comemorativas
-- 🎂 Adicionar mensagens personalizadas para aniversários
-- 💑 Criar uma área para datas importantes do casal
-- 🌙 Alterar a mensagem de acordo com o período do dia
-- 🌧️ Criar diferentes animações para diferentes momentos
-- 🌸 Adicionar diferentes tipos de flores
-- 🎨 Criar temas visuais alternativos
-- 📱 Aprimorar a experiência em dispositivos móveis
-- 🔊 Adicionar efeitos sonoros opcionais
 - 💌 Permitir mensagens personalizadas
-- 📆 Permitir visualizar mensagens de outros dias
-- ✨ Criar efeitos especiais para datas importantes
+- 🔗 Lembrar da flor escolhida e permitir compartilhar um link já com ela
+- 🌸 Adicionar mais flores (tulipa, margarida, orquídea...)
+- 🎂 Mensagens especiais para datas comemorativas e aniversários
+- 🌙 Alterar o cenário de acordo com o período do dia
+- 🔊 Adicionar efeitos sonoros opcionais
 
 <br />
 
 ## 🤝 Contribuição
 
 Contribuições são sempre bem-vindas!
-
-Para contribuir:
 
 1. Faça um fork do projeto
 2. Crie uma branch para sua feature (`git checkout -b feature/minha-feature`)
@@ -80,10 +136,10 @@ Para contribuir:
 
 ## 📄 Licença
 
-Este projeto está sob a licença MIT.
-Sinta-se livre para usar, modificar e distribuir.
+Este projeto está sob a licença MIT. Sinta-se livre para usar, modificar e distribuir.
 
 <br />
+
 <p align="center">
   Desenvolvido com ❤️ por <a href="https://linkedin.com/in/diego-natalo"><b>Diego Natalo</b></a>
 </p>

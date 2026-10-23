@@ -1,13 +1,9 @@
-import { Footer } from "./components/footer";
-import { RomanticMessage } from "./components/message";
-import { Rose } from "./components/rose";
+import Home from "./pages/home";
+import NotFound from "./pages/not-found";
 
+/* Sem biblioteca de rotas: o site só tem a página inicial, então qualquer
+   outro endereço cai na 404. */
 export default function App() {
-  return (
-    <div className="min-h-dvh flex items-center flex-col gap-4 px-8 text-center pb-4">
-      <Rose size={400} particles />
-      <RomanticMessage />
-      <Footer />
-    </div>
-  );
+  const isHome = window.location.pathname.replace(/\/+$/, "") === "";
+  return isHome ? <Home /> : <NotFound />;
 }
