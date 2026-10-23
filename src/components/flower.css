@@ -6,33 +6,39 @@
    0.9s  folhas se desenrolam
    1.4s  botão aparece e incha
    --bloom  pétalas se abrem uma a uma
-   depois  a planta balança e brilhos piscam
+   depois  a flor balança (camada própria) e brilhos piscam
    ========================================================= */
+
+.flower-wrap {
+  position: relative;
+}
 
 .flower {
   display: block;
   overflow: visible;
+
+  /* O balanço roda no <svg> inteiro, que o navegador transforma na GPU sem
+     repintar as pétalas. Animar elementos *dentro* do SVG (e, pior, com filtro
+     de sombra) obriga a redesenhar tudo a cada frame, e trava em celulares.
+     Não usar `will-change: transform` aqui: congela a resolução e borra. */
+  transform-origin: 50% 94%;
+  animation: plant-sway 6s ease-in-out 5s infinite alternate;
+}
+
+.flower-sparkles {
+  position: absolute;
+  inset: 0;
+  overflow: visible;
+  pointer-events: none;
 }
 
 .flower .petal,
 .flower .leaf,
 .flower .bud,
 .flower .bud-stay,
-.flower .sparkle {
+.flower-sparkles .sparkle {
   transform-box: view-box;
   transform-origin: 0 0;
-}
-
-.flower .plant {
-  transform-box: view-box;
-  transform-origin: 160px 358px;
-  animation: plant-sway 6s ease-in-out 5s infinite alternate;
-}
-
-.flower .head-sway {
-  transform-box: view-box;
-  transform-origin: var(--ox) var(--oy);
-  animation: head-sway 4.5s ease-in-out 5s infinite alternate;
 }
 
 /* ---------- chão ---------- */
@@ -72,9 +78,8 @@
 /* ---------- folhas ---------- */
 
 .leaf {
-  animation:
-    leaf-grow 1.1s cubic-bezier(0.22, 1, 0.36, 1) calc(var(--d) * 1s) both,
-    leaf-sway 4s ease-in-out calc((var(--d) + 3.4) * 1s) infinite alternate;
+  animation: leaf-grow 1.1s cubic-bezier(0.22, 1, 0.36, 1)
+    calc(var(--d) * 1s) both;
 }
 
 /* ---------- botão ---------- */
@@ -160,15 +165,6 @@
   }
 }
 
-@keyframes leaf-sway {
-  from {
-    rotate: 0deg;
-  }
-  to {
-    rotate: 2.4deg;
-  }
-}
-
 @keyframes bud-life {
   0% {
     scale: 0;
@@ -229,15 +225,6 @@
   }
 }
 
-@keyframes head-sway {
-  from {
-    rotate: -1.2deg;
-  }
-  to {
-    rotate: 1.4deg;
-  }
-}
-
 @keyframes sparkle {
   0%,
   100% {
@@ -260,7 +247,7 @@
   }
 
   .flower .bud,
-  .flower .sparkle {
+  .flower-sparkles .sparkle {
     display: none;
   }
 }
