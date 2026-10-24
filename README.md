@@ -1,172 +1,152 @@
-<p align="center">
-  <img src="./public/og-image.jpg" alt="Uma hortênsia azul desabrochando sobre a frase “Uma flor para alegrar o seu dia”" />
-</p>
+<div align="center">
 
-<h1 align="center">🌸 Mimoflor</h1>
+<img src="public/og-image.jpg" alt="Uma hortênsia azul desabrochando sobre a frase “Uma flor para alegrar o seu dia”" width="720" />
 
-<p align="center">
-  <b>Uma flor para você.</b> Escolha uma flor e veja ela nascer.<br />
-  Um pequeno presente digital: uma animação, uma frase e um jardim para alegrar o dia de alguém.
-</p>
+# Mimoflor
 
-<p align="center">
-  🔗 <a href="https://mimoflor.vercel.app"><b>Acesse o projeto online</b></a>
-</p>
+**Uma flor para alegrar o dia de alguém.**<br />
+Escolha uma flor, veja ela nascer em animação e compartilhe um link bonito, leve e sem cadastro.
 
 <br />
 
-## ✨ Funcionalidades
+[![Abrir o app](https://img.shields.io/badge/abrir_o_app-mimoflor.vercel.app-e11d48?style=for-the-badge&logo=vercel&logoColor=white)](https://mimoflor.vercel.app)
 
-- 🌹 **Quatro flores para escolher:** rosa, girassol (amarelo), hortênsia (azul) e lírio (branco).
-- 🎛️ **Rosa personalizável:** ao escolher a rosa, aparecem as opções de **tipo** (nacional, vista de cima, ou colombiana, de taça alta e fechada) e de **cor** (vermelha ou azul). As quatro combinações têm tema de cores próprio.
-- 🌱 **Animação de nascimento:** o caule brota da terra, as folhas se desenrolam, um botão surge e as pétalas se abrem uma a uma. Depois, a planta balança suavemente e brilhos piscam ao redor.
-- 🎨 **Tema que acompanha a flor:** o fundo, o brilho e a poeira de luz mudam de cor, com transição suave, conforme a flor escolhida.
-- 💌 **Frase de boas-vindas** com entrada suave depois que a flor desabrocha.
-- 📱 **Responsivo:** a flor se ajusta à largura e à altura da tela, para tudo caber sem rolar em celulares comuns.
-- ♿ **Acessível:** o seletor é um grupo de botões de rádio navegável pelo teclado e a animação é encurtada para quem prefere menos movimento.
-- 🔗 **Link com a flor:** a flor escolhida fica no endereço, e quem abre o link já vê a mesma flor (ver abaixo).
-- 🥀 **Página 404** própria: um broto que ainda não floresceu. Aparece para endereços e flores que não existem.
-- 🔗 **Open Graph** configurado, com imagem de prévia para compartilhamento, e **favicon** próprio.
+![React](https://img.shields.io/badge/React_19-20232a?style=flat-square&logo=react&logoColor=61dafb)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178c6?style=flat-square&logo=typescript&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-646cff?style=flat-square&logo=vite&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS_4-06b6d4?style=flat-square&logo=tailwindcss&logoColor=white)
+![Licença MIT](https://img.shields.io/badge/licença-MIT-e11d48?style=flat-square)
+
+</div>
 
 <br />
 
-## 🛠️ Tecnologias Utilizadas
+## ✨ O que dá para fazer
 
-- ⚛️ [React 19](https://react.dev)
-- 🟦 [TypeScript](https://www.typescriptlang.org)
-- 🎨 [Tailwind CSS 4](https://tailwindcss.com)
-- ⚡ [Vite](https://vite.dev)
-- 🖼️ SVG desenhado em código, animado só com CSS (sem bibliotecas de animação)
+| Recurso | Descrição |
+|---|---|
+| **Escolher a flor** | Rosa, girassol, hortênsia ou lírio. A hortênsia abre por padrão. |
+| **Personalizar a rosa** | Escolha o tipo (nacional, vista de cima, ou colombiana, de taça alta) e a cor (vermelha ou azul). |
+| **Ver a flor nascer** | O caule brota, as folhas se desenrolam e as pétalas se abrem uma a uma. Depois ela balança e brilha. |
+| **Clima que acompanha a flor** | O fundo, o brilho e a poeira de luz mudam de cor com a flor escolhida. |
+| **Compartilhar por link** | A flor fica no endereço (`?flor=rosa&tipo=colombiana&cor=azul`). Quem abre o link vê a mesma flor. |
+| **Usar no celular** | A flor se ajusta à largura e à altura da tela, e a animação é leve em aparelhos simples. |
+| **Navegar pelo teclado** | O seletor funciona com teclado e a animação é encurtada para quem prefere menos movimento. |
+| **Página 404 própria** | Endereços e flores que não existem levam a um broto que ainda não floresceu. |
 
-<br />
+## 🖼️ Telas
 
-## 💻 Como Rodar o Projeto Localmente
+Imagens de prévia geradas a partir do próprio site, com a animação no estado final.
 
-Você vai precisar do [Node.js](https://nodejs.org) e do [pnpm](https://pnpm.io).
+<table>
+  <tr>
+    <td width="50%"><img src="public/og/rose.jpg" alt="Rosa nacional vermelha, vista de cima, sobre fundo rosado" /><br /><sub><b>Rosa nacional</b>: pétalas em espiral, vista de cima.</sub></td>
+    <td width="50%"><img src="public/og/colombian-blue.jpg" alt="Rosa colombiana azul, em taça alta e fechada" /><br /><sub><b>Rosa colombiana azul</b>: taça alta, na cor azul.</sub></td>
+  </tr>
+  <tr>
+    <td width="50%"><img src="public/og/sunflower.jpg" alt="Girassol amarelo sobre fundo dourado" /><br /><sub><b>Girassol</b>: miolo escuro e pétalas amarelas.</sub></td>
+    <td width="50%"><img src="public/og/lily.jpg" alt="Lírio branco sobre fundo claro" /><br /><sub><b>Lírio</b>: pétalas brancas e alongadas.</sub></td>
+  </tr>
+</table>
+
+## 🧠 Como funciona
+
+| Conceito | Regra |
+|---|---|
+| **Flor padrão** | Sem `flor` na URL, abre a hortênsia. |
+| **Parâmetros** | `flor` (`rosa`, `girassol`, `hortensia`, `lirio`), e só para a rosa: `tipo` (`nacional`, `colombiana`) e `cor` (`vermelha`, `azul`). |
+| **Valor inválido** | Um valor que não existe em `flor`, `tipo` ou `cor` leva à página 404. |
+| **Parâmetros de fora** | `utm_source`, `fbclid` e similares são ignorados. `tipo` e `cor` em flor que não os tem também. |
+| **Opções da rosa** | Na abertura da página, entram só depois do seletor de flores. Em trocas seguintes, aparecem na hora. |
+| **Animação** | Só CSS, sem biblioteca. As flores são SVG desenhado em código. |
+
+A lógica da URL fica em `src/lib/flower-url.ts`, e cada flor declara o próprio texto de URL (`slug`) no registro.
+
+## 🚀 Rodando localmente
+
+Requer [Node.js](https://nodejs.org) e [pnpm](https://pnpm.io).
 
 ```bash
-# Clone o repositório
 git clone https://github.com/diegonatalo/rose.git
-
-# Acesse a pasta do projeto
 cd rose
-
-# Instale as dependências
 pnpm install
-
-# Inicie o servidor de desenvolvimento
-pnpm dev
+pnpm dev        # http://localhost:5173
 ```
 
-📍 O projeto estará disponível em: http://localhost:5173
+| Comando | O que faz |
+|---|---|
+| `pnpm dev` | Servidor de desenvolvimento com HMR |
+| `pnpm build` | Checa os tipos e gera o build de produção |
+| `pnpm preview` | Serve o build de produção |
+| `pnpm lint` | Roda o ESLint |
 
-### Scripts
-
-| Comando        | O que faz                                   |
-| -------------- | ------------------------------------------- |
-| `pnpm dev`     | Inicia o servidor de desenvolvimento        |
-| `pnpm build`   | Verifica os tipos e gera a versão de produção |
-| `pnpm preview` | Serve localmente a versão de produção       |
-| `pnpm lint`    | Roda o ESLint                               |
-
-<br />
-
-## 🗂️ Estrutura do Projeto
+## 🗂️ Estrutura
 
 ```text
 src/
-├── App.tsx                  # Escolhe a página: "/" é a home, o resto é a 404
-├── index.css                # Temas por flor, fundo, tipografia e seletor
+├── App.tsx                  "/" abre a home, qualquer outro caminho abre a 404
+├── index.css                temas por flor, fundo, tipografia e seletor
+├── lib/
+│   └── flower-url.ts        lê e escreve a flor escolhida na URL
 ├── pages/
-│   ├── home.tsx             # Flor, frase e seletor
-│   └── not-found.tsx        # Página 404
+│   ├── home.tsx             flor, frase e seletor
+│   └── not-found.tsx        página 404
 └── components/
-    ├── flower.tsx           # Monta o SVG da flor escolhida
-    ├── flower.css           # Linha do tempo e keyframes da animação
-    ├── flower-picker.tsx    # Seletor de flores
-    ├── flower-options.tsx   # Opções da flor escolhida (tipo, cor...)
-    ├── message.tsx           # Frase exibida abaixo da flor
-    ├── stage.tsx            # Fundo atmosférico (halo e poeira de luz)
+    ├── flower.tsx           monta o SVG da flor escolhida
+    ├── flower.css           linha do tempo e keyframes da animação
+    ├── flower-picker.tsx    seletor de flores
+    ├── flower-options.tsx   opções da flor escolhida (tipo, cor)
+    ├── message.tsx          frase abaixo da flor
+    ├── stage.tsx            fundo com halo e poeira de luz
     └── flowers/
-        ├── registry.tsx     # Flores disponíveis e suas opções
-        ├── shared.tsx       # Caule, folhas, chão, brilhos e pétala genérica
-        ├── utils.ts         # Aleatório determinístico e helper de variáveis CSS
-        ├── rose.tsx             # Rosa nacional (vista de cima)
-        ├── colombian-rose.tsx   # Rosa colombiana (taça alta)
-        ├── palettes.ts          # Cores (vermelha e azul) das rosas
-        ├── sunflower.tsx
-        ├── hydrangea.tsx
-        └── lily.tsx
+        ├── registry.tsx     flores disponíveis, slugs e opções
+        ├── shared.tsx       caule, folhas, chão, brilhos e pétala genérica
+        ├── palettes.ts      cores (vermelha e azul) das rosas
+        ├── utils.ts         aleatório determinístico e helper de variáveis CSS
+        └── rose, colombian-rose, sunflower, hydrangea, lily
 ```
 
-### 🌷 Como adicionar uma nova flor
+<details>
+<summary><b>Como adicionar uma nova flor</b></summary>
+
+<br />
 
 1. Crie `src/components/flowers/minha-flor.tsx` exportando um componente de gradientes (`MinhaFlorDefs`) e um da planta (`MinhaFlorPlant`). Use `Stem`, `Leaf` e `Petal` de `shared.tsx`.
-2. Registre a flor em `flowers/registry.tsx`: nome, cor da bolinha no seletor e uma função `view` que devolve o desenho, o tema, a cor dos brilhos, a posição da cabeça e o segundo em que ela começa a abrir.
+2. Registre a flor em `flowers/registry.tsx`: nome, `slug` da URL, cor da bolinha no seletor e uma função `view` que devolve o desenho, o tema, a cor dos brilhos, a posição da cabeça e o segundo em que ela começa a abrir.
 3. Crie o tema de cores em `index.css`, no bloco `.stage[data-flower="..."]`.
-4. Para dar variações à flor (como tipo e cor da rosa), declare `options` no registro. O seletor desenha a fileira de opções sozinho, e `view` recebe a escolha feita.
+4. Para dar variações (como tipo e cor da rosa), declare `options` no registro. O seletor desenha a fileira de opções sozinho, e `view` recebe a escolha feita.
+
+</details>
+
+## 🌐 Deploy
+
+Publicado na [Vercel](https://vercel.com). O `vercel.json` manda todos os caminhos para o `index.html` (SPA fallback), e assim a 404 do site aparece no lugar da padrão da Vercel.
+
+> [!NOTE]
+> As URLs das meta tags Open Graph, em `index.html`, são absolutas. Se o domínio mudar, atualize-as.
+
+Ícones e imagens ficam em `public/`:
+
+| Arquivo | Para que serve |
+|---|---|
+| `favicon.svg`, `favicon-32.png`, `apple-touch-icon.png` | Ícone do site |
+| `og-image.jpg` | Prévia do link compartilhado (1200×630), hoje a da hortênsia |
+| `og/*.jpg` | Uma prévia pronta para cada flor, ainda sem uso nas meta tags |
+
+## 🧭 Próximos passos
+
+- [ ] Prévia de link diferente por flor (hoje as meta tags são fixas, então o link mostra sempre a hortênsia)
+- [ ] Mensagens personalizadas
+- [ ] Mais flores (tulipa, margarida, orquídea)
+- [ ] Mensagens para datas especiais, como aniversários
+- [ ] Testes automatizados e CI (hoje só há `tsc` e ESLint)
+
+## Licença
+
+[MIT](LICENSE), © 2026 Diego Natalo.
 
 <br />
 
-## 🚀 Deploy
-
-O projeto é publicado na [Vercel](https://vercel.com). O arquivo `vercel.json` redireciona todos os endereços para o `index.html`, assim a página 404 própria do site aparece no lugar da padrão da Vercel.
-
-As URLs das meta tags Open Graph, em `index.html`, são absolutas. Se o domínio mudar, atualize-as.
-
-### 🔗 Links com a flor
-
-A escolha fica na URL e se atualiza sozinha enquanto você escolhe, então basta copiar o endereço da barra:
-
-| Parâmetro | Valores |
-| --------- | ------- |
-| `flor`    | `rosa`, `girassol`, `hortensia`, `lirio` |
-| `tipo` (só rosa) | `nacional`, `colombiana` |
-| `cor` (só rosa)  | `vermelha`, `azul` |
-
-Exemplos: `/?flor=girassol` e `/?flor=rosa&tipo=colombiana&cor=azul`. Sem `flor`, abre a hortênsia. Um valor que não existe em `flor`, `tipo` ou `cor` (por exemplo `?flor=rosa&cor=azullaaaaa`) leva à página 404. Parâmetros que não são do site, como `utm_source` e `fbclid`, são ignorados, e `tipo` ou `cor` numa flor que não os tem também. A lógica fica em `src/lib/flower-url.ts`, e cada flor declara o próprio texto de URL (`slug`) no registro.
-
-### 🖼️ Ícones e imagens de prévia
-
-Tudo fica em `public/`:
-
-- `favicon.svg`, `favicon-32.png` e `apple-touch-icon.png`: o ícone do site (uma flor cor-de-rosa).
-- `og-image.jpg`: a imagem que aparece quando o link é compartilhado (1200×630). Hoje é a da hortênsia, a flor padrão.
-- `og/*.jpg`: uma imagem de prévia pronta para cada flor (`rose`, `rose-blue`, `colombian`, `colombian-blue`, `sunflower`, `hydrangea` e `lily`). As meta tags ficam fixas no `index.html`, então o link compartilhado mostra sempre `og-image.jpg`, mesmo com a flor na URL. Estas ficam prontas para uma prévia diferente por flor, o que exigiria gerar o HTML por flor ou uma função na Vercel.
-
-Elas foram geradas a partir do próprio site, com o navegador sem interface, com as animações levadas ao estado final.
-
-<br />
-
-## 🛣️ Melhorias Futuras
-
-- 💌 Permitir mensagens personalizadas
-- 🔗 Uma imagem de prévia diferente no link, conforme a flor escolhida
-- 🌸 Adicionar mais flores (tulipa, margarida, orquídea...)
-- 🎂 Mensagens especiais para datas comemorativas e aniversários
-- 🌙 Alterar o cenário de acordo com o período do dia
-- 🔊 Adicionar efeitos sonoros opcionais
-
-<br />
-
-## 🤝 Contribuição
-
-Contribuições são sempre bem-vindas!
-
-1. Faça um fork do projeto
-2. Crie uma branch para sua feature (`git checkout -b feature/minha-feature`)
-3. Commit suas alterações (`git commit -m 'feat: minha nova feature'`)
-4. Faça push para a branch (`git push origin feature/minha-feature`)
-5. Abra um Pull Request
-
-<br />
-
-## 📄 Licença
-
-Este projeto está sob a licença MIT. Sinta-se livre para usar, modificar e distribuir.
-
-<br />
-
-<p align="center">
-  Desenvolvido com ❤️ por <a href="https://linkedin.com/in/diego-natalo"><b>Diego Natalo</b></a>
-</p>
+<div align="center">
+  <sub>Feito com 💗 para quem quer alegrar o dia de alguém.</sub>
+</div>
